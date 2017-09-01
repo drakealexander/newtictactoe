@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tic Tac Toe Game</title>
+		<script type="text/javascript" src="script.js"></script>
+        <style>
+            body {
+                margin:  0;
+                padding: 0;
+                width: 100%;
+                background-color: #A8E9AA;
+            }
+			#gameBoard {
+				display: none;
+			}
+            #canvas {
+            	border: none;
+            	float: left;
+            }
+            #cellNumber {
+            	margin: 0 auto;
+            	width: 	550px;
+            	height: 200px;
+            }
+            select, button{
+            	margin: 20px 0 0 150px;
+            	width: 	150px;
+            	height: 25px;
+            	font-size: 18px;
+            }
+            h1 {
+            	color: #383838;
+            	font-family: "Helvetica", cursive, sans-serif;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="cellNumber">
+			<h1>What Type of Board?</h1>
+			<select id="list">
+				<option value="3">3x3</option>
+				<option value="4">4x4</option>
+				<option value="5">5x5</option>
+				<option value="6">6x6</option>
+				<option value="7">7x7</option>
+				<option value="8">8x8</option>
+				<option value="9">9x9</option>
+        
+			</select><br />
+			<button type="button" id="start">Start</button>
+		</div>
+		<div id="gameBoard">
+			<canvas id="canvas">
+				<h1>Your browser don't support HTML5! Please update your browser.</h1>
+			</canvas>
+			<button type="button" id="newGame">New Game</button>
+		</div>
+	</body>
+</html>
