@@ -11,11 +11,9 @@
     var context;
     var xBoard = [];
     var oBoard = [];
-    var width, height; // width and height of Board
+    var width, height; 
 
-    /**
-     * Winning combinations for different game boards
-     */
+    
 
     var winCombinations3x3 = [['0 0', '1 0', '2 0'],
                               ['0 1', '1 1', '2 1'],
@@ -124,43 +122,34 @@
 
 
 
-    /**
-     * Paint the Board for the game
-     * |0 0|1 0|2 0|
-     * |0 1|1 1|2 1|
-     * |0 2|1 2|2 2|
-     */
+    
     function  paintBoard() {
-        // Get the selected element from select list
+        
         var index = document.getElementById('list').selectedIndex;
         numOfCell = parseInt(document.getElementsByTagName("option")[index].value, 10);
 
         var board = document.getElementById('canvas');
 
-        // Hide the select list
+       
         document.getElementById('cellNumber').style.display = "none";
 
-        // Display the board
+  
         document.getElementById('gameBoard').style.display = 'inline';
 
-        // Generate the width and the height of game board
         width   = numOfCell * 100;
         height  = numOfCell * 100;
 
-        // Width and height of canvas element
+       
         board.height = height;
         board.width  = width;
 
         context = board.getContext('2d');
 
-        // Paint the board
         context.beginPath();
         context.strokeStyle = "#000";
         context.lineWidth = 3;
 
-        /**
-         * Generate the cells number
-         */
+        
         for(var i = 1; i < 9; i++) {
             context.moveTo((width / numOfCell) * i, 0);
             context.lineTo((width / numOfCell) * i, height);
@@ -187,16 +176,11 @@
     function newGame() {
     	document.getElementById('cellNumber').style.display = "block";
 
-        // Display the board
+
         document.getElementById('gameBoard').style.display = 'none';
         reset();
     }
 
-    /**
-     *  Paint the X
-     *  @param float
-     *  @param float
-     */
     function paintX(x, y) {
         var pair = x + " " + y;
 
@@ -231,11 +215,7 @@
 
     }
 
-    /**
-     * Paint the O
-     * @param float
-     * @param float
-     */
+   
     function paintO(x, y) {
         var pair = x + " " + y;
 
@@ -264,10 +244,8 @@
         }
     }
 
-    /**
-     * Player move on the Board
-     * @param event
-     */
+    
+    
     function movePlayer(e) {
         var x = Math.floor(e.clientX / (width / numOfCell));
         var y = Math.floor(e.clientY / (height / numOfCell));
@@ -291,9 +269,7 @@
         }
     }
 
-    /**
-     * Move of computer is random (first move etc.)
-     */
+   
     function randomMoveComputer() {
         var x = Math.floor(Math.random() * numOfCell);
         var y = Math.floor(Math.random() * numOfCell);
@@ -307,9 +283,7 @@
         }
     }
 
-    /**
-     * Computer move that purposed for attack
-     */
+  
     function attackComputer() {
         if(numOfCell == 3) {
             for (var i = 0; i < winCombinations3x3.length; i++) {
@@ -356,7 +330,6 @@
             }
         }
 
-        // a,b,c,d
         if(numOfCell == 4) {
             for (var i = 0; i < winCombinations4x4.length; i++) {
                 ax = parseInt(winCombinations4x4[i][0].charAt(0), 10);
@@ -403,7 +376,7 @@
             }
         }
 
-        // a,b,c,d,e
+      
         if(numOfCell == 5) {
             for (var i = 0; i < winCombinations5x5.length; i++) {
                 ax = parseInt(winCombinations5x5[i][0].charAt(0), 10);
@@ -475,7 +448,7 @@
             }
         }
 
-        // a,b,c,d,e,f
+       
         if(numOfCell == 6) {
             for (var i = 0; i < winCombinations6x6.length; i++) {
                 ax = parseInt(winCombinations6x6[i][0].charAt(0), 10);
@@ -504,7 +477,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g
+       
         if(numOfCell == 7) {
             for (var i = 0; i < winCombinations7x7.length; i++) {
                 ax = parseInt(winCombinations7x7[i][0].charAt(0), 10);
@@ -537,7 +510,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h
+       
         if(numOfCell == 8) {
             for (var i = 0; i < winCombinations8x8.length; i++) {
                 ax = parseInt(winCombinations8x8[i][0].charAt(0), 10);
@@ -574,7 +547,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h,i
+      
         if(numOfCell == 9) {
             for (var i = 0; i < winCombinations9x9.length; i++) {
                 ax = parseInt(winCombinations9x9[i][0].charAt(0), 10);
@@ -616,9 +589,6 @@
         }
     }
 
-    /**
-     * Computer move that purposed for defence
-     */
     function defenseComputer() {
         if(numOfCell == 3) {
             for(var i = 0; i < winCombinations3x3.length; i++) {
@@ -665,7 +635,7 @@
             }
         }
 
-        // a,b,c,d
+  
         if(numOfCell == 4) {
             for (var i = 0; i < winCombinations4x4.length; i++) {
                 ax = parseInt(winCombinations4x4[i][0].charAt(0), 10);
@@ -720,7 +690,7 @@
             }
         }
 
-        // a,b,c,d,e
+     
         if(numOfCell == 5) {
             for (var i = 0; i < winCombinations5x5.length; i++) {
                 ax = parseInt(winCombinations5x5[i][0].charAt(0), 10);
@@ -792,7 +762,7 @@
             }
         }
 
-        // a,b,c,d,e,f
+        
         if(numOfCell == 6) {
             for (var i = 0; i < winCombinations6x6.length; i++) {
                 ax = parseInt(winCombinations6x6[i][0].charAt(0), 10);
@@ -821,7 +791,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g
+      
         if(numOfCell == 7) {
             for (var i = 0; i < winCombinations7x7.length; i++) {
                 ax = parseInt(winCombinations7x7[i][0].charAt(0), 10);
@@ -854,7 +824,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h
+
         if(numOfCell == 8) {
             for (var i = 0; i < winCombinations8x8.length; i++) {
                 ax = parseInt(winCombinations8x8[i][0].charAt(0), 10);
@@ -891,7 +861,7 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h,i
+        
         if(numOfCell == 9) {
             for (var i = 0; i < winCombinations9x9.length; i++) {
                 ax = parseInt(winCombinations9x9[i][0].charAt(0), 10);
@@ -938,10 +908,7 @@
         }*/
     }
 
-    /**
-     * Check the winner
-     * @returns boolean
-     */
+
     function checkWins() {
         if (numOfCell == 3) {
             for(var i = 0; i < winCombinations3x3.length; i++) {
@@ -991,7 +958,7 @@
             }
         }
 
-        // a,b,c,d,e
+       
         if(numOfCell == 5) {
             for(var i = 0; i < winCombinations5x5.length; i++) {
                 a = winCombinations5x5[i][0];
@@ -1015,7 +982,7 @@
             }
         }
 
-        // a,b,c,d,e,f
+     
         if(numOfCell == 6) {
             for(var i = 0; i < winCombinations6x6.length; i++) {
                 a = winCombinations6x6[i][0];
@@ -1047,7 +1014,6 @@
             }
         }
 
-        // a,b,c,d,e,f,g
         if(numOfCell == 7) {
             for(var i = 0; i < winCombinations7x7.length; i++) {
                 a = winCombinations7x7[i][0];
@@ -1075,7 +1041,6 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h
         if(numOfCell == 8) {
             for(var i = 0; i < winCombinations8x8.length; i++) {
                 a = winCombinations8x8[i][0];
@@ -1111,7 +1076,6 @@
             }
         }
 
-        // a,b,c,d,e,f,g,h,i
         if(numOfCell == 9) {
             for(var i = 0; i < winCombinations9x9.length; i++) {
                 a = winCombinations9x9[i][0];
@@ -1147,7 +1111,7 @@
      */
     function restart() {
 
-        // Reset data
+        
         context.clearRect (0, 0, width , height);
         xBoard = [];
         oBoard = [];
